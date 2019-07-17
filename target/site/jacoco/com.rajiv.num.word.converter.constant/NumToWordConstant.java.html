@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>NumToWordConstant.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">numwordconvert</a> &gt; <a href="index.source.html" class="el_package">com.rajiv.num.word.converter.constant</a> &gt; <span class="el_source">NumToWordConstant.java</span></div><h1>NumToWordConstant.java</h1><pre class="source lang-java linenums">/**
+ * 
+ */
+package com.rajiv.num.word.converter.constant;
+
+/**
+ * @author Rajiv
+ *
+ */
+public interface NumToWordConstant {
+	
+	final int INPUT_NUMBER=0;
+	final int MAX_NUMBER=999999999;
+	
+	final String ENTER_INPUT=&quot;Please type a number(max upto 9 digits)&quot;;
+	
+	final String INPUT_NUMBER_ZERO=&quot;Number in Words:: Zero&quot;;
+	
+	final String NUMBER_IN_WORDS=&quot;Number in Words:: &quot;;
+	final String EMPTY_CHAR = &quot;&quot;;
+	final String SPACE_CHAR = &quot; &quot;;
+	final String WORD_MINUS = &quot;minus &quot;;
+	final String WORD_MILLION = &quot; million &quot;;
+	final String WORD_THOUSAND = &quot; thousand &quot;;
+	final String WORD_HUNDRED = &quot; hundred and &quot;;
+	final String NUMBER_OUT_OF_RANGE=&quot;Given Input is Out of Range :: Please Enter a Valid 0&lt;= number &lt;= 999999999::&quot;;
+
+	final String LOGGER_CLASS_MESSAGE_START = &quot;Start of main() method in Class::&quot;;
+	final String LOGGER_CLASS_MESSAGE_END = &quot;End of main() method in Class ::&quot;;
+	final String LOGGER_IME_EXCEPTION_MESSAGE = &quot;Given Input is Not a Number Type :: Please Enter a Valid number ::&quot;;
+	final String LOGGER_EXCEPTION_MESSAGE = &quot;An Expection Occured in the main() method ::&quot;;
+	final String LOGGER_INPUT_METHOD_MESSAGE_START = &quot;Start of convertNumberToWord method in Class::&quot;;
+	final String LOGGER_INPUT_METHOD_MESSAGE_END = &quot;Ends of convertNumberToWord method in Class::&quot;;
+	
+<span class="fc" id="L35">	final String[] UNITS_ARRAY = { &quot;zero&quot;, &quot;one&quot;, &quot;two&quot;, &quot;three&quot;, &quot;four&quot;, &quot;five&quot;, &quot;six&quot;, &quot;seven&quot;, &quot;eight&quot;, &quot;nine&quot;,</span>
+			&quot;ten&quot;, &quot;eleven&quot;, &quot;twelve&quot;, &quot;thirteen&quot;, &quot;fourteen&quot;, &quot;fifteen&quot;, &quot;sixteen&quot;, &quot;seventeen&quot;, &quot;eighteen&quot;,
+			&quot;nineteen&quot; };
+<span class="fc" id="L38">	final String[] TENS_ARRAY = { &quot;zero&quot;, &quot;ten&quot;, &quot;twenty&quot;, &quot;thirty&quot;, &quot;forty&quot;, &quot;fifty&quot;, &quot;sixty&quot;, &quot;seventy&quot;, &quot;eighty&quot;,</span>
+			&quot;ninety&quot; };
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.2.201808211720</span></div></body></html>

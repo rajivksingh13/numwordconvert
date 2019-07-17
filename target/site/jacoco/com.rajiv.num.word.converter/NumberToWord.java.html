@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>NumberToWord.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">numwordconvert</a> &gt; <a href="index.source.html" class="el_package">com.rajiv.num.word.converter</a> &gt; <span class="el_source">NumberToWord.java</span></div><h1>NumberToWord.java</h1><pre class="source lang-java linenums">/**
+ * 
+ */
+package com.rajiv.num.word.converter;
+
+import org.apache.log4j.Logger;
+import com.rajiv.num.word.converter.constant.NumToWordConstant;
+
+/**
+ * @author Rajiv
+ *
+ */
+<span class="fc" id="L13">public class NumberToWord {</span>
+
+<span class="fc" id="L15">	private static Logger logger = Logger.getLogger(NumberToWord.class);</span>
+
+	public static String convertNumberToWord(int number) {
+
+<span class="fc" id="L19">		logger.info(NumToWordConstant.LOGGER_INPUT_METHOD_MESSAGE_START + NumberToWord.class.getName());</span>
+
+		// variable to hold string representation of number
+<span class="fc" id="L22">		String words = NumToWordConstant.EMPTY_CHAR;</span>
+<span class="fc" id="L23">		String unitsArray[] = NumToWordConstant.UNITS_ARRAY;</span>
+<span class="fc" id="L24">		String tensArray[] = NumToWordConstant.TENS_ARRAY;</span>
+
+		// add minus before conversion if the number is less than 0
+<span class="pc bpc" id="L27" title="1 of 2 branches missed.">		if (number &lt; 0) {</span>
+			// convert the number to a string
+<span class="nc" id="L29">			String numberStr = NumToWordConstant.EMPTY_CHAR + number;</span>
+			// remove minus before the number
+<span class="nc" id="L31">			numberStr = numberStr.substring(1);</span>
+			// add minus before the number and convert the rest of number
+<span class="nc" id="L33">			return NumToWordConstant.WORD_MINUS + convertNumberToWord(Integer.parseInt(numberStr));</span>
+		}
+		// check if number is divisible by 1 million
+<span class="pc bpc" id="L36" title="1 of 2 branches missed.">		if ((number / 1000000) &gt; 0) {</span>
+<span class="nc" id="L37">			words += convertNumberToWord(number / 1000000) + NumToWordConstant.WORD_MILLION;</span>
+<span class="nc" id="L38">			number %= 1000000;</span>
+		}
+		// check if number is divisible by 1 thousand
+<span class="pc bpc" id="L41" title="1 of 2 branches missed.">		if ((number / 1000) &gt; 0) {</span>
+<span class="nc" id="L42">			words += convertNumberToWord(number / 1000) + NumToWordConstant.WORD_THOUSAND;</span>
+<span class="nc" id="L43">			number %= 1000;</span>
+		}
+		// check if number is divisible by 1 hundred
+<span class="fc bfc" id="L46" title="All 2 branches covered.">		if ((number / 100) &gt; 0) {</span>
+<span class="fc" id="L47">			words += convertNumberToWord(number / 100) + NumToWordConstant.WORD_HUNDRED;</span>
+<span class="fc" id="L48">			number %= 100;</span>
+		}
+		
+<span class="pc bpc" id="L51" title="1 of 2 branches missed.">		if (number &gt; 0) {</span>
+			// check if number is within teens
+<span class="fc bfc" id="L53" title="All 2 branches covered.">			if (number &lt; 20) {</span>
+				// fetch the appropriate value from unit array
+<span class="fc" id="L55">				words += unitsArray[number];</span>
+			} else {
+				// fetch the appropriate value from tens array
+<span class="fc" id="L58">				words += tensArray[number / 10];</span>
+<span class="pc bpc" id="L59" title="1 of 2 branches missed.">				if ((number % 10) &gt; 0) {</span>
+<span class="fc" id="L60">					words += NumToWordConstant.SPACE_CHAR + unitsArray[number % 10];</span>
+				}
+			}
+		}
+<span class="fc" id="L64">		logger.info(NumToWordConstant.LOGGER_INPUT_METHOD_MESSAGE_END + NumberToWord.class.getName());</span>
+<span class="fc" id="L65">		return words;</span>
+	}
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.2.201808211720</span></div></body></html>

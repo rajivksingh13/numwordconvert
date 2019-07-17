@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="en"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>NumberToWordConverter.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">numwordconvert</a> &gt; <a href="index.source.html" class="el_package">com.rajiv.num.word.converter</a> &gt; <span class="el_source">NumberToWordConverter.java</span></div><h1>NumberToWordConverter.java</h1><pre class="source lang-java linenums">/**
+ * 
+ */
+package com.rajiv.num.word.converter;
+
+import java.util.InputMismatchException;
+import java.util.Scanner;
+import org.apache.log4j.Logger;
+import com.rajiv.num.word.converter.constant.NumToWordConstant;
+import com.rajiv.num.word.converter.exception.NumberOutOfRangeException;
+
+/**
+ * @author Rajiv This Class is the Starter for the Number To Word Converter
+ *         Application
+ *
+ */
+<span class="nc" id="L17">public class NumberToWordConverter {</span>
+
+	/**
+	 * @param args main() method will take the a Number Type as input argument i.e.
+	 *             1,5,67
+	 */
+<span class="nc" id="L23">	private static Logger logger = Logger.getLogger(NumberToWordConverter.class);</span>
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+<span class="nc bnc" id="L28" title="All 2 branches missed.">		if (logger.isDebugEnabled())</span>
+<span class="nc" id="L29">			logger.info(NumToWordConstant.LOGGER_CLASS_MESSAGE_START + NumberToWordConverter.class.getName());</span>
+
+<span class="nc" id="L31">		int number = NumToWordConstant.INPUT_NUMBER;</span>
+<span class="nc" id="L32">		int maxNumber = NumToWordConstant.MAX_NUMBER;</span>
+
+<span class="nc" id="L34">		Scanner scanner = new Scanner(System.in);</span>
+
+<span class="nc" id="L36">		System.out.println(NumToWordConstant.ENTER_INPUT);</span>
+
+		try {
+			// read the number
+<span class="nc" id="L40">			number = scanner.nextInt();</span>
+<span class="nc bnc" id="L41" title="All 2 branches missed.">			if (number &lt; maxNumber) {</span>
+<span class="nc bnc" id="L42" title="All 2 branches missed.">				if (number == 0) {</span>
+<span class="nc" id="L43">					System.out.print(NumToWordConstant.INPUT_NUMBER_ZERO);</span>
+				} else {
+<span class="nc" id="L45">					System.out.print(NumToWordConstant.NUMBER_IN_WORDS + NumberToWord.convertNumberToWord(number));</span>
+				}
+			} else {
+<span class="nc" id="L48">				throw new NumberOutOfRangeException(NumToWordConstant.NUMBER_OUT_OF_RANGE);</span>
+			}
+<span class="nc" id="L50">		} catch (NumberOutOfRangeException nore) {</span>
+<span class="nc" id="L51">			nore.getMessage();</span>
+<span class="nc" id="L52">			logger.error(NumToWordConstant.NUMBER_OUT_OF_RANGE);</span>
+<span class="nc" id="L53">		} catch (InputMismatchException ime) {</span>
+<span class="nc" id="L54">			ime.printStackTrace();</span>
+<span class="nc" id="L55">			logger.error(NumToWordConstant.LOGGER_IME_EXCEPTION_MESSAGE);</span>
+<span class="nc" id="L56">		} catch (Exception ex) {</span>
+<span class="nc" id="L57">			ex.printStackTrace();</span>
+<span class="nc" id="L58">			logger.error(NumToWordConstant.LOGGER_EXCEPTION_MESSAGE);</span>
+		} finally {
+			// close the reader
+<span class="nc" id="L61">			scanner.close();</span>
+		}
+<span class="nc" id="L63">		logger.info(NumToWordConstant.LOGGER_CLASS_MESSAGE_END + NumberToWordConverter.class.getName());</span>
+<span class="nc" id="L64">	}</span>
+
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.8.2.201808211720</span></div></body></html>
